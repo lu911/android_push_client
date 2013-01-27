@@ -1,3 +1,7 @@
+/* 
+ * Copyright © 2013 Yuk SeungChan, All rights reserved.
+ */
+
 package com.cnp.utils;
 
 import android.content.Context;

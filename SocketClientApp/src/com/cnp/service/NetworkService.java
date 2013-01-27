@@ -1,3 +1,7 @@
+/* 
+ * Copyright Â© 2013 Yuk SeungChan, All rights reserved.
+ */
+
 package com.cnp.service;
 
 import com.cnp.net.SocketListener;
@@ -23,7 +27,7 @@ public class NetworkService extends Service {
 	
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
-		Log.d("fuck", "onStartCommand()½ÇÇàµÊ");
+		Log.d("fuck", "onStartCommand()ì‹¤í–‰ë¨");
 		if(new Utils().isConnected(getApplicationContext())){
 			new SocketListener().execute();
 		}
