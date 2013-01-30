@@ -24,7 +24,7 @@ public class SocketBroadcastReceiver extends BroadcastReceiver
 	    // TODO Auto-generated method stub
 		if(intent.getAction().equals("android.intent.action.BOOT_COMPLETED"))
 		{
-			Log.d("fuck", "onReceive");
+			Log.d("CNP", "onReceive");
 			int SECS = 1000;
 			int MINS = 60 * SECS;
 			Calendar cal = Calendar.getInstance();

@@ -6,11 +6,10 @@ package com.cnp.activity;
 
 import java.io.IOException;
 
-import com.cnp.net.SocketNertworkManager;
+import com.cnp.net.SocketNetworkManager;
+import com.cnp.net.listener.SocketNetworkDataListener;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
@@ -19,7 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends Activity implements OnClickListener
+public class MainActivity extends Activity implements OnClickListener, SocketNetworkDataListener
 {
 	
 	private Button btn_send = null;
@@ -35,6 +34,7 @@ public class MainActivity extends Activity implements OnClickListener
         btn_send.setOnClickListener(this);
         tv_viewer = (TextView)findViewById(R.id.tv_viewer);
         et_data = (EditText)findViewById(R.id.et_data);
+        SocketNetworkManager.getInstance().setOnDataReciverListener(this);
     }
     
     @Override
@@ -53,7 +53,7 @@ public class MainActivity extends Activity implements OnClickListener
 		{
 		case R.id.btn_send:
 			try {
-				SocketNertworkManager.sendMsg(et_data.getText().toString(), mHandler);
+				SocketNetworkManager.getInstance().send(et_data.getText().toString());
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -61,12 +61,10 @@ public class MainActivity extends Activity implements OnClickListener
 			break;
 		}
 	}
-    
-	Handler mHandler = new Handler()
+
+	@Override
+	public void onDataRecive(Object data)
 	{
-		public void handleMessage(Message msg)
-		{
-			tv_viewer.setText(msg.obj + "");
-		}
-	};
+		tv_viewer.setText(data + "");
+	}
 }
