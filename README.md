@@ -4,6 +4,8 @@ Android Push Client
 
 Example
 --------------------------------------
+    MainActivity
+    
 	public class MainActivity extends Activity
 	{
 		private SocketNetworkManager socketNetworkManager;
