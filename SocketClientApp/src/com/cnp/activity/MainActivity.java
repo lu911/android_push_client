@@ -4,12 +4,11 @@
 
 package com.cnp.activity;
 
-import java.io.IOException;
-
-import com.cnp.net.SocketNetworkManager;
-import com.cnp.net.listener.SocketNetworkDataListener;
+import com.cnp.net.manager.SocketNetworkManager;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
@@ -18,23 +17,26 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends Activity implements OnClickListener, SocketNetworkDataListener
+public class MainActivity extends Activity implements OnClickListener
 {
 	
 	private Button btn_send = null;
 	private TextView tv_viewer = null;
 	private EditText et_data = null;
+	private SocketNetworkManager socketNetworkManager;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) 
     {
+		socketNetworkManager = SocketNetworkManager.getInstance();
+		socketNetworkManager.setOnHandler(handler);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btn_send = (Button)findViewById(R.id.btn_send);
         btn_send.setOnClickListener(this);
         tv_viewer = (TextView)findViewById(R.id.tv_viewer);
         et_data = (EditText)findViewById(R.id.et_data);
-        SocketNetworkManager.getInstance().setOnDataReciverListener(this);
+
     }
     
     @Override
@@ -52,19 +54,15 @@ public class MainActivity extends Activity implements OnClickListener, SocketNet
 		switch(v.getId())
 		{
 		case R.id.btn_send:
-			try {
 				SocketNetworkManager.getInstance().send(et_data.getText().toString());
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			break;
 		}
 	}
-
-	@Override
-	public void onDataRecive(Object data)
+	
+	Handler handler = new Handler() 
 	{
-		tv_viewer.setText(data + "");
-	}
+		public void handleMessage(Message msg) {
+			tv_viewer.setText(msg.obj.toString() + "");
+    	}
+    };
 }

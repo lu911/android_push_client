@@ -4,6 +4,8 @@
 
 package com.cnp.utils;
 
+import java.util.regex.Pattern;
+
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -22,5 +24,9 @@ public class Utils {
 			connected = true;
 		}
 		return connected;
+	}
+	
+	public boolean isNumber(String value) {
+		return Pattern.compile("[0-9]*").matcher(value).matches();
 	}
 }

@@ -1,8 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/com/cnp/activity/MainActivity.java=UTF-8
 encoding//src/com/cnp/net/SocketNetworkAsyncTask.java=UTF-8
-encoding//src/com/cnp/net/SocketNetworkManager.java=UTF-8
-encoding//src/com/cnp/net/listener/SocketNetworkDataListener.java=UTF-8
 encoding//src/com/cnp/receiver/SocketBroadcastReceiver.java=UTF-8
 encoding//src/com/cnp/service/NetworkService.java=UTF-8
 encoding//src/com/cnp/utils/URLs.java=UTF-8

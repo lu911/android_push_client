@@ -4,6 +4,8 @@
 
 package com.cnp.net;
 
+import com.cnp.net.manager.SocketNetworkManager;
+
 import android.os.AsyncTask;
 
 public class SocketNetworkAsyncTask extends AsyncTask<Void, Void, Void> {
@@ -36,15 +38,16 @@ public class SocketNetworkAsyncTask extends AsyncTask<Void, Void, Void> {
 	protected void onCancelled() 
 	{
 		// TODO Auto-generated method stub
+		this.isRunning = false;
 		super.onCancelled();
 	}
 
 	@Override
-	protected Void doInBackground(Void... arg0) 
+	protected Void doInBackground(Void... params) 
 	{
-		while(true){
-			this.isRunning = true;
-			SocketNetworkManager.getInstance().recv(0);
-		}	
-	}	
+		this.isRunning = true;
+		while(true)
+				SocketNetworkManager.getInstance().recv();
+	}
+
 }
