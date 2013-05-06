@@ -4,7 +4,7 @@ Android Push Client
 
 Example
 --------------------------------------
-    MainActivity
+MainActivity
     
 	public class MainActivity extends Activity
 	{
@@ -31,3 +31,4 @@ Example
 
 	
   
+If error is found, please contact 'loup1788@gmail.com'
