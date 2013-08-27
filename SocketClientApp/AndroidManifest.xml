@@ -18,15 +18,15 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.cnp.activity.MainActivity"
+            android:name="org.loup.activity.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name="com.cnp.service.NetworkService"></service>
-        <receiver android:name="com.cnp.receiver.SocketBroadcastReceiver" android:label="@string/app_name">
+        <service android:name="org.loup.service.NetworkService"></service>
+        <receiver android:name="org.loup.receiver.SocketBroadcastReceiver" android:label="@string/app_name">
             <intent-filter>
     			<action android:name="android.intent.action.BOOT_COMPLETED" />
     			<category android:name="android.intent.category.LAUNCHER" />

@@ -2,11 +2,11 @@
  * Copyright © 2013 Yuk SeungChan, All rights reserved.
  */
 
-package com.cnp.receiver;
+package org.loup.receiver;
 
 import java.util.Calendar;
 
-import com.cnp.service.NetworkService;
+import org.loup.service.NetworkService;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -21,8 +21,7 @@ public class SocketBroadcastReceiver extends BroadcastReceiver
 	@Override
 	public void onReceive(Context context, Intent intent) 
 	{
-	    // TODO Auto-generated method stub
-		if(intent.getAction().equals("android.intent.action.BOOT_COMPLETED"))
+	    if(intent.getAction().equals("android.intent.action.BOOT_COMPLETED"))
 		{
 			Log.d("CNP", "onReceive");
 			int SECS = 1000;

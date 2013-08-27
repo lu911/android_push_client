@@ -2,10 +2,11 @@
  * Copyright © 2013 Yuk SeungChan, All rights reserved.
  */
 
-package com.cnp.service;
+package org.loup.service;
 
-import com.cnp.net.SocketNetworkAsyncTask;
-import com.cnp.utils.Utils;
+import android.util.Log;
+import org.loup.net.SocketNetworkAsyncTask;
+import org.loup.utils.Utils;
 
 import android.app.Service;
 import android.content.Intent;
@@ -30,8 +31,10 @@ public class NetworkService extends Service
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) 
 	{
-		if(new Utils().isConnected(getApplicationContext()) && !socketNetworkAsyncTask.isRunning)
+        Log.d("loup", "onStartCommand");
+        if(new Utils().isConnected(getApplicationContext()) && !socketNetworkAsyncTask.isRunning)
 			SocketNetworkAsyncTask.getInstance().execute();
+            Log.d("loup", "task run");
 		return super.onStartCommand(intent, flags, startId);
 	}
 }

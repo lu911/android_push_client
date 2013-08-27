@@ -2,9 +2,9 @@
  * Copyright © 2013 Yuk SeungChan, All rights reserved.
  */
 
-package com.cnp.net;
+package org.loup.net;
 
-import com.cnp.net.manager.SocketNetworkManager;
+import org.loup.net.manager.SocketNetworkManager;
 
 import android.os.AsyncTask;
 
@@ -37,7 +37,6 @@ public class SocketNetworkAsyncTask extends AsyncTask<Void, Void, Void> {
 	@Override
 	protected void onCancelled() 
 	{
-		// TODO Auto-generated method stub
 		this.isRunning = false;
 		super.onCancelled();
 	}
@@ -47,7 +46,14 @@ public class SocketNetworkAsyncTask extends AsyncTask<Void, Void, Void> {
 	{
 		this.isRunning = true;
 		while(true)
-				SocketNetworkManager.getInstance().recv();
-	}
+        try
+        {
+            SocketNetworkManager.getInstance().receive();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 
 }
