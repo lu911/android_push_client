@@ -26,7 +26,8 @@ MainActivity
 				// rece data processor
 			}
 		};
-            @Override
+		
+		@Override
 	    public void connect()
 	    {
 	        Log.d("loup", "MainActivity Socket Connect");
@@ -48,10 +49,8 @@ MainActivity
 	    {
 	
 	    }
-
 	}
 
 
 	
-  
 If error is found, please contact 'loup1788@gmail.com'
