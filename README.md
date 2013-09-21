@@ -26,7 +26,7 @@ MainActivity
 				// rece data processor
 			}
 		};
-		    @Override
+            @Override
 	    public void connect()
 	    {
 	        Log.d("loup", "MainActivity Socket Connect");
